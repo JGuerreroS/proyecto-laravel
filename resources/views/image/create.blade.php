@@ -12,7 +12,7 @@
                 
                 <div class="card-body">
                     
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('image.save') }}" method="post" enctype="multipart/form-data">
                         
                         @csrf
                         
