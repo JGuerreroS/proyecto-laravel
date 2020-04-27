@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 
 class UserController extends Controller{
 
+    // Autenticar usuario de la sesión
     public function __construct(){
 
         $this->middleware('auth');
