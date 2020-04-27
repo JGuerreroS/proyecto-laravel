@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\File;
 
 class UserController extends Controller{
 
+    public function __construct(){
+
+        $this->middleware('auth');
+
+    }
 
     // Cargar vista de configuración
     public function config()    {
