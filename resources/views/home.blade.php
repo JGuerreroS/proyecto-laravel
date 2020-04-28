@@ -7,19 +7,41 @@
 
             @include('includes.message')
 
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            @foreach ($images as $image)
+                
+                <div class="card pub_image">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    <div class="card-header">
+
+                        @if ($image->user->image)
+                            <div class="container-avatar">
+                                
+                                <img src="{{ route('user.avatar',['filename' => $image->user->image]) }}" class="avatar">
+
+                            </div>
+                        @endif
+
+                        <div class="data-user">
+
+                            {{ $image->user->name.' '.$image->user->surname }}
+
+                            <span class="nickname">
+                                {{ ' | @'.$image->user->nick }}
+                            </span>
+
                         </div>
-                    @endif
 
-                    You are logged in!
+                    </div>
+                    
+                    <div class="card-body">
+
+
+
+                    </div>
                 </div>
-            </div>
+
+            @endforeach
+
         </div>
     </div>
 </div>
