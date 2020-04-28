@@ -32,3 +32,21 @@ form .avatar{
 .pub_image .nickname{
     color: gray;
 }
+
+.image-container{
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.image-container img{
+    width: 100%;
+}
+
+.pub_image .card-body{
+    padding: 0px;
+}
+
+.pub_image .description{
+    padding: 20px;
+}
