@@ -54,7 +54,15 @@
 
             @endforeach
 
+            {{-- Paginación --}}
+            <div class="clear-fix"></div>
+    
+            {{ $images->links() }}
+
         </div>
+
     </div>
+
 </div>
+
 @endsection
