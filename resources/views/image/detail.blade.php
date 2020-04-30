@@ -41,6 +41,7 @@
 
                         <div class="description">
                             <span class="nickname"> {{ '@'.$image->user->nick }} </span>
+                            <span class="nickname"> {{ ' | '.\FormatTime::LongTimeFilter($image->created_at) }} </span>
                             <p> {{ $image->description }} </p>
                         </div>
 
