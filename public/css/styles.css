@@ -79,3 +79,8 @@ form .avatar{
 .pub_image_detail .comments{
     padding: 20px;
 }
+
+.number-likes{
+    color: gray;
+    font-size: 11px;
+}

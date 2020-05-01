@@ -52,7 +52,28 @@
                         </div>
 
                         <div class="likes">
-                            <img src="{{ asset('img/heart-gray.png') }}">
+
+                            <?php $user_like = false; ?>
+                            
+                            @foreach ($image->likes as $like)
+
+                                @if($like->user->id == Auth::user()->id)
+                                    <?php $user_like = true; ?>
+                                @endif
+
+                            @endforeach
+
+                            @if($user_like)
+                                <img src="{{ asset('img/heart-red.png') }}" class="btn-dislike">
+                            @else    
+                                <img src="{{ asset('img/heart-gray.png') }}" class="btn-like">
+                            @endif
+
+                            {{-- Contar el total de likes --}}
+                            <span class="number-likes">
+                                {{ count($image->likes) }}
+                            </span>
+
                         </div>
 
                         <div class="comments">
