@@ -45,7 +45,29 @@ class LikeController extends Controller{
 
     // Método dislike
     public function dislike($image_id){
-        # code...
+
+        // Obtener datos del usuarios
+        $user = \Auth::user()->id;
+
+        // Verificar si el like ya existe previante
+        $like = Like::where('user_id',$user)->where('image_id',$image_id)->first();
+
+        if($like){
+                
+            // Eliminar like
+            $like->delete();
+
+            return response()->json([
+                'like' => $like,
+                'message' => 'Haz dado dislike'
+            ]);
+
+        }else{
+
+            return response()->json(['message' => 'El like no existe']);
+
+        }
+
     }
 
 }
