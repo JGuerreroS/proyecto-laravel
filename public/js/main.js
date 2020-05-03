@@ -13,7 +13,7 @@ window.addEventListener("load", function(){
         $('.btn-like').unbind('click').click(function(){
             console.log('Like');
             $(this).addClass('btn-dislike').removeClass('btn-like');
-            $(this).attr('src','img/heart-red.png');
+            $(this).attr('src', url + '/img/heart-red.png');
 
             dislike();
 
@@ -37,7 +37,7 @@ window.addEventListener("load", function(){
         $('.btn-dislike').unbind('click').click(function(){
             console.log('Dislike');
             $(this).addClass('btn-like').removeClass('btn-dislike');
-            $(this).attr('src','img/heart-gray.png');
+            $(this).attr('src', url + '/img/heart-gray.png');
 
             like();
 
