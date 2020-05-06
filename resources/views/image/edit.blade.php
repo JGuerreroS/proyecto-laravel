@@ -12,9 +12,11 @@
                 
                 <div class="card-body">
                     
-                    <form action="{{ route('image.save') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('image.update') }}" method="post" enctype="multipart/form-data">
                         
                         @csrf
+
+                        <input type="hidden" name="image_id" value="{{ $image->id }}">
                         
                         <div class="form-group row">
                             
@@ -28,7 +30,7 @@
         
                                 </div>
                                 
-                                <input type="file" name="image_path" id="image_path" class="form-control {{ $errors->has('image_path') ? 'is-invalid' : '' }}" required>
+                                <input type="file" name="image_path" id="image_path" class="form-control {{ $errors->has('image_path') ? 'is-invalid' : '' }}">
 
                                 @if ($errors->has('image_path'))
                                     <span class="invalid-feedback" role="alert">

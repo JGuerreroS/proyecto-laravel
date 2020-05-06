@@ -118,4 +118,37 @@ class ImageController extends Controller{
         
     }
 
+    public function update(Request $request){
+
+        // Validación
+        $validate = $this->validate($request,[
+            'description' => 'required',
+            'image_path' => 'image'
+        ]);
+
+        // Recibir los datos
+        $image_id = $request->input('image_id');
+        $image_path = $request->file('image_path');
+        $description = $request->input('description');
+
+        // Objeto de la base de datos
+        $image = Image::find($image_id);
+        $image->description = $description;
+        
+        // Subir imagen
+        if ($image_path) {
+            Storage::disk('images')->delete($image->image_path); // Eliminar foto anterior
+            $image_path_name = time() . $image_path->getClientOriginalName();
+            Storage::disk('images')->put($image_path_name, File::get($image_path));
+            $image->image_path = $image_path_name;
+        }
+
+        // Actualizar registro
+        $image->update();
+        return redirect()->route('image.detail', ['id' => $image_id])->with([
+            'message' => 'La publicación ha sido cargada correctamente'
+        ]);
+
+    }
+
 }
