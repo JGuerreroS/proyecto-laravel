@@ -7,6 +7,22 @@
 
             <h1>Comunidad</h1>
 
+            <form action="{{ route('user.index') }}" method="get" id="buscador">
+
+                @csrf
+
+                <div class="row">                    
+                    <div class="form-group col">
+                        <input type="text" id="search" class="form-control">
+                    </div>
+    
+                    <div class="form-group col btn-search">
+                        <input type="submit" value="Buscar" class="btn btn-success">
+                    </div>
+                </div>
+                
+            </form>
+
             <hr>
 
             @foreach ($users as $user)
