@@ -8,7 +8,7 @@
 
         <div class="col-md-8">
 
-            <div class="data-user">
+            <div class="profile-user">
 
                 @if ($user->image)
                     <div class="container-avatar">
@@ -24,7 +24,13 @@
                     <p> {{ 'Se unió: '.\FormatTime::LongTimeFilter($user->created_at) }} </p>
                 </div>
 
+                <div class="clearfix"></div>
+                
+                <hr>
+
             </div>
+
+            <div class="clearfix"></div>
 
             @foreach ($user->images as $image)
                 
