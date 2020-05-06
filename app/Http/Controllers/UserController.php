@@ -18,6 +18,14 @@ class UserController extends Controller{
 
     }
 
+    public function index(){
+
+        $users = User::orderBy('id','desc')->paginate(5);
+
+        return view('user.index', ['users' => $users]);
+
+    }
+
     // Cargar vista de configuración
     public function config()    {
         
