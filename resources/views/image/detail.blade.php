@@ -70,6 +70,14 @@
 
                         </div>
 
+                        @if (Auth::user() && Auth::user()->id == $image->user->id)    
+                            <div class="actions">
+                                <a href="" class="btn btn-sm btn-primary">Actualizar</a>
+                                <a href="" class="btn btn-sm btn-danger">Eliminar</a>
+                            </div>
+                        @endif
+
+
                         <div class="clear-fix"></div>
 
                         <div class="comments">
